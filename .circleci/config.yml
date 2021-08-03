@@ -1,4 +1,12 @@
 version: 2.1
+
+references:
+  production: &production
+    filters:
+      branches:
+        only:
+          - master
+
 orbs:
   node: circleci/node@1.1.6
 jobs:
@@ -13,4 +21,5 @@ jobs:
 workflows:
   test-build-and-publish:
     jobs:
-      - test-build-and-publish
+      - test-build-and-publish:
+          <<: *production
