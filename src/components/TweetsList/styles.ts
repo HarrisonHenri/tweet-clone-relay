@@ -15,11 +15,11 @@ export const Header = styled.View`
   flex-shrink: 0;
 `;
 
-export const Text = styled.Text<{bold?: boolean}>`
+export const Text = styled.Text<{ bold?: boolean }>`
   font-family: 'HelveticaNeue-Light';
   font-size: 18px;
 
-  ${(props) =>
+  ${props =>
     props.bold &&
     `
     font-weight: bold;
