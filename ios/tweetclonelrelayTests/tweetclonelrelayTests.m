@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface tweetclonelrelayTests : XCTestCase
+@interface tweetclonerelayTests : XCTestCase
 
 @end
 
-@implementation tweetclonelrelayTests
+@implementation tweetclonerelayTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

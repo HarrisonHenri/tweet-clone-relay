@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "tweetclonelrelay.app"
-               BlueprintName = "tweetclonelrelay"
-               ReferencedContainer = "container:tweetclonelrelay.xcodeproj">
+               BuildableName = "tweetclonerelay.app"
+               BlueprintName = "tweetclonerelay"
+               ReferencedContainer = "container:tweetclonerelay.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "tweetclonelrelayTests.xctest"
-               BlueprintName = "tweetclonelrelayTests"
-               ReferencedContainer = "container:tweetclonelrelay.xcodeproj">
+               BuildableName = "tweetclonerelayTests.xctest"
+               BlueprintName = "tweetclonerelayTests"
+               ReferencedContainer = "container:tweetclonerelay.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "tweetclonelrelay.app"
-            BlueprintName = "tweetclonelrelay"
-            ReferencedContainer = "container:tweetclonelrelay.xcodeproj">
+            BuildableName = "tweetclonerelay.app"
+            BlueprintName = "tweetclonerelay"
+            ReferencedContainer = "container:tweetclonerelay.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "tweetclonelrelay.app"
-            BlueprintName = "tweetclonelrelay"
-            ReferencedContainer = "container:tweetclonelrelay.xcodeproj">
+            BuildableName = "tweetclonerelay.app"
+            BlueprintName = "tweetclonerelay"
+            ReferencedContainer = "container:tweetclonerelay.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
