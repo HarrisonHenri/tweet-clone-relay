@@ -27,7 +27,7 @@ const Tweet = ({ tweet }: { tweet: ITweet }) => {
   return (
     <TweetContainer>
       <Header>
-        <Text bold>{tweet.author}</Text>
+        <Text>{tweet.author}</Text>
         <SubText>{formattedDate}</SubText>
       </Header>
       {tweet.description?.length > 0 && (
