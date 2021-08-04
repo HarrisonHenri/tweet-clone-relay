@@ -2,13 +2,13 @@ import 'react-native-gesture-handler';
 
 import React, { Suspense } from 'react';
 import { ActivityIndicator, StatusBar } from 'react-native';
-import { ThemeProvider } from 'styled-components';
 
 import { NavigationContainer } from '@react-navigation/native';
+import { ThemeProvider } from 'styled-components';
 
 import Routes from './routes';
-import theme from './styles/theme';
 import { AppContainer } from './styles';
+import theme from './styles/theme';
 
 const App = () => {
   return (

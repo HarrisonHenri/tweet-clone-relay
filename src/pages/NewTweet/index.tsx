@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 
-import { StackNavigationProp } from '@react-navigation/stack';
 import { ParamListBase } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 import {
   Container,
