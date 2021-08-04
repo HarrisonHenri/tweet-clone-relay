@@ -1,31 +1,28 @@
 import 'react-native-gesture-handler';
 
 import React, { Suspense } from 'react';
-import { ActivityIndicator, SafeAreaView, StatusBar } from 'react-native';
+import { ActivityIndicator, StatusBar } from 'react-native';
+import { ThemeProvider } from 'styled-components';
 
 import { NavigationContainer } from '@react-navigation/native';
 
 import Routes from './routes';
-import { AppColors } from './styles/global';
-import { StyleSheet } from 'react-native';
+import theme from './styles/theme';
+import { AppContainer } from './styles';
 
 const App = () => {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <StatusBar barStyle="dark-content" />
       <NavigationContainer>
-        <SafeAreaView style={styles.container}>
+        <AppContainer>
           <Suspense fallback={<ActivityIndicator />}>
             <Routes />
           </Suspense>
-        </SafeAreaView>
+        </AppContainer>
       </NavigationContainer>
-    </>
+    </ThemeProvider>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: AppColors.GRAY },
-});

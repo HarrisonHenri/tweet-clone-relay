@@ -4,10 +4,10 @@ import HeartSVG from '../../assets/icons/heart.svg';
 
 export const TweetContainer = styled.View`
   flex-grow: 1;
-  background-color: #fff;
-  padding: 16px;
-  margin-top: 16px;
-  border-radius: 8px;
+  background-color: ${props => props.theme.colors.secondary.light};
+  padding: ${props => props.theme.spacing.medium};
+  margin-top: ${props => props.theme.spacing.medium};
+  border-radius: ${props => props.theme.spacing.high};
 `;
 
 export const Header = styled.View`
@@ -27,24 +27,24 @@ export const Text = styled.Text<{ bold?: boolean }>`
 `;
 
 export const SubText = styled(Text)`
-  color: #707070;
+  color: ${props => props.theme.colors.secondary.dark};
   margin-left: 16px;
 `;
 
 export const Content = styled.View`
   flex-grow: 1;
-  margin-top: 8px;
+  margin-top: ${props => props.theme.spacing.small};
 `;
 
 export const LikesButton = styled.TouchableOpacity.attrs({
   activeOpacity: 0.9,
 })`
   flex-direction: row;
-  margin-top: 8px;
+  margin-top: ${props => props.theme.spacing.small};
 `;
 
 export const LikesIcon = styled(HeartSVG)`
   width: 16px;
   height: 16px;
-  color: #707070;
+  color: ${props => props.theme.colors.secondary.dark};
 `;

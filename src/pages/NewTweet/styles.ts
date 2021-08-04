@@ -1,10 +1,9 @@
 import styled from 'styled-components/native';
-import { AppColors } from '../../styles/global';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${AppColors.GRAY};
-  padding: 0 16px;
+  background-color: ${props => props.theme.colors.secondary.main};
+  padding: ${props => props.theme.spacing.medium};
 `;
 
 export const ButtonsContainer = styled.View`
@@ -21,13 +20,13 @@ export const Button = styled.TouchableOpacity.attrs({
   width: 70px;
   height: 35px;
   border-radius: 35px;
-  background-color: ${AppColors.PRIMARY};
+  background-color: ${props => props.theme.colors.primary.main};
 
   ${props =>
     props.noBg &&
     `
     background-color: transparent;
-    color: ${AppColors.PRIMARY};
+    color: ${props.theme.colors.primary.main};
   `}
 `;
 
@@ -39,7 +38,7 @@ export const ButtonText = styled.Text<{ noBg?: boolean }>`
   ${props =>
     props.noBg &&
     `
-    color: ${AppColors.PRIMARY};
+    color: ${props.theme.colors.primary.main};
   `}
 `;
 
@@ -48,10 +47,7 @@ export const Content = styled.View`
   padding-top: 16px;
 `;
 
-export const Input = styled.TextInput.attrs({
-  placeholderTextColor: '#abb7bf',
-  selectionColor: AppColors.PRIMARY,
-})`
+export const Input = styled.TextInput`
   flex-grow: 1;
   font-family: 'HelveticaNeue-Light';
   font-size: 16px;
