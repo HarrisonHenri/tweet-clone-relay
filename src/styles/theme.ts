@@ -10,6 +10,7 @@ export default {
       main: '#ebeef0',
       dark: '#b9bcbe',
     },
+    error: '#c53030',
   },
   spacing: {
     small: '8px',

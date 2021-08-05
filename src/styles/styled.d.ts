@@ -5,6 +5,7 @@ declare module 'styled-components' {
     colors: {
       primary: { light: string; main: string; dark: string };
       secondary: { light: string; main: string; dark: string };
+      error: string;
     };
     spacing: {
       small: string;
