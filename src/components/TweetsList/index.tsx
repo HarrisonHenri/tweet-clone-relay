@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { FlatList } from 'react-native';
-import { Tweet as ITweet } from '../../modules/models';
 
 import { formatDistance } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
+import { Tweet as ITweet } from '../../modules/models';
 import {
   Content,
   Header,
@@ -27,7 +27,7 @@ const Tweet = ({ tweet }: { tweet: ITweet }) => {
   return (
     <TweetContainer>
       <Header>
-        <Text bold>{tweet.author}</Text>
+        <Text>{tweet.author}</Text>
         <SubText>{formattedDate}</SubText>
       </Header>
       {tweet.description?.length > 0 && (

@@ -1,11 +1,27 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+
+import React, { Suspense } from 'react';
+import { ActivityIndicator, StatusBar } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { ThemeProvider } from 'styled-components';
+
+import Routes from './routes';
+import { AppContainer } from './styles';
+import theme from './styles/theme';
 
 const App = () => {
   return (
-    <View>
-      <Text>Hello</Text>
-    </View>
+    <ThemeProvider theme={theme}>
+      <StatusBar barStyle="dark-content" />
+      <NavigationContainer>
+        <AppContainer>
+          <Suspense fallback={<ActivityIndicator />}>
+            <Routes />
+          </Suspense>
+        </AppContainer>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 };
 
