@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
+    "relay": "npx realy-compiler --src ./src --schema ./src/data/schema.graphql --language typescript",
+    "relay:watch": "npx relay --watch"
   },
   "dependencies": {
     "@react-navigation/native": "^5.9.4",
@@ -15,6 +17,7 @@
     "date-fns": "^2.23.0",
     "eslint-config-prettier": "^8.3.0",
     "formik": "^2.2.9",
+    "graphql": "^15.5.1",
     "react": "17.0.1",
     "react-native": "0.64.1",
     "react-native-gesture-handler": "^1.10.3",
@@ -22,6 +25,10 @@
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.5.0",
     "react-native-svg": "^12.1.1",
+    "react-relay": "^11.0.2",
+    "relay": "^0.8.0-1",
+    "relay-hooks": "^5.0.0",
+    "relay-runtime": "^11.0.2",
     "styled-components": "^5.3.0",
     "yup": "^0.32.9"
   },
@@ -32,9 +39,11 @@
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.64.5",
     "@types/react-test-renderer": "^16.9.2",
+    "@types/relay-runtime": "^11.0.2",
     "@types/styled-components": "^5.1.11",
     "@types/styled-components-react-native": "^5.1.1",
     "babel-jest": "^26.6.3",
+    "babel-plugin-relay": "^11.0.2",
     "eslint": "^7.14.0",
     "eslint-plugin-import": "^2.23.4",
     "git-commit-msg-linter": "^3.2.6",
@@ -42,6 +51,8 @@
     "metro-react-native-babel-preset": "^0.64.0",
     "react-native-svg-transformer": "^0.14.3",
     "react-test-renderer": "17.0.1",
+    "relay-compiler": "^11.0.2",
+    "relay-compiler-language-typescript": "^14.0.0",
     "semantic-release": "^17.4.4",
     "typescript": "^3.8.3"
   },
