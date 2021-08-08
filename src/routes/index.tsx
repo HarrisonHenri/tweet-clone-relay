@@ -11,7 +11,7 @@ const Routes = () => {
   const Stack = createStackNavigator();
 
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="SignIn">
+    <Stack.Navigator headerMode="none" initialRouteName="Home">
       <Stack.Screen key="signin" name="SignIn" component={SignIn} />
       <Stack.Screen key="signin" name="SignUp" component={SignUp} />
       <Stack.Screen key="home" name="Home" component={Home} />

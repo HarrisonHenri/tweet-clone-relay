@@ -3,8 +3,11 @@ import { FlatList } from 'react-native';
 
 import { formatDistance } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import { useFragment } from 'relay-hooks';
 
-import { Tweet as ITweet } from '../../modules/models';
+import { TweetsFragment_Tweet$key } from '../../data/relay/__generated__/TweetsFragment_Tweet.graphql';
+import { TweetsQueryResponse } from '../../data/relay/__generated__/TweetsQuery.graphql';
+import TweetsFragment from '../../data/relay/TweetsFragment';
 import {
   Content,
   Header,
@@ -15,19 +18,21 @@ import {
   TweetContainer,
 } from './styles';
 
-const Tweet = ({ tweet }: { tweet: ITweet }) => {
+const Tweet = ({ node }: { node: TweetsFragment_Tweet$key }) => {
+  const tweet = useFragment<TweetsFragment_Tweet$key>(TweetsFragment, node);
+
   const formattedDate = useMemo(
     () =>
-      `à ${formatDistance(new Date(tweet.createdAt as Date), new Date(), {
+      `à ${formatDistance(new Date(tweet?.createdAt as Date), new Date(), {
         locale: ptBR,
       })}`,
-    [tweet?.createdAt],
+    [tweet.createdAt],
   );
 
   return (
     <TweetContainer>
       <Header>
-        <Text>{tweet.author}</Text>
+        <Text>{tweet.author?.name}</Text>
         <SubText>{formattedDate}</SubText>
       </Header>
       {tweet.description?.length > 0 && (
@@ -43,22 +48,15 @@ const Tweet = ({ tweet }: { tweet: ITweet }) => {
   );
 };
 
-const TweetsList = () => {
-  const tweets = [
-    {
-      id: '1',
-      author: 'Luis',
-      createdAt: new Date('2021-01-10T17:00:00Z'),
-      updatedAt: new Date('2021-01-10T17:00:00Z'),
-      description: 'Primeiro projeto com o relay',
-      likes: 2,
-    },
-  ];
+interface Props {
+  data: TweetsQueryResponse;
+}
 
+const TweetsList: React.FC<Props> = ({ data }) => {
   return (
     <FlatList
-      data={tweets}
-      renderItem={({ item }) => <Tweet tweet={item} />}
+      data={data?.tweets?.edges}
+      renderItem={({ item }) => <Tweet node={item.node} />}
       keyExtractor={(item, index) => index.toString()}
     />
   );
