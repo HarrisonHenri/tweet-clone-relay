@@ -19,7 +19,13 @@ const App = () => {
       <RelayEnvironmentProvider environment={environment}>
         <NavigationContainer>
           <AppContainer>
-            <Suspense fallback={<ActivityIndicator />}>
+            <Suspense
+              fallback={
+                <ActivityIndicator
+                  size="large"
+                  color={theme.colors.primary.main}
+                />
+              }>
               <Routes />
             </Suspense>
           </AppContainer>
