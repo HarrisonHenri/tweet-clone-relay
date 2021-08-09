@@ -4,10 +4,14 @@ import { RectButtonProps } from 'react-native-gesture-handler';
 
 import { Container, ButtonText } from './styles';
 
-const Button: React.FC<RectButtonProps> = ({ children, ...rest }) => {
+interface ExtendedProps extends RectButtonProps {
+  noBg?: boolean;
+}
+
+const Button: React.FC<ExtendedProps> = ({ children, ...rest }) => {
   return (
     <Container {...rest}>
-      <ButtonText>{children}</ButtonText>
+      <ButtonText noBg={rest.noBg}>{children}</ButtonText>
     </Container>
   );
 };
