@@ -57,7 +57,8 @@ const TweetsList: React.FC<Props> = ({ data }) => {
     <FlatList
       data={data?.tweets?.edges}
       renderItem={({ item }) => <Tweet node={item.node} />}
-      keyExtractor={(item, index) => index.toString()}
+      keyExtractor={(_, index) => index.toString()}
+      showsVerticalScrollIndicator={false}
     />
   );
 };
