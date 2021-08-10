@@ -8,7 +8,7 @@ import {
 } from 'relay-runtime';
 
 async function fetchQuery(operation: RequestParameters, variables: Variables) {
-  return fetch('http://192.168.0.6:4000/', {
+  return fetch('http://192.168.0.7:4000/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

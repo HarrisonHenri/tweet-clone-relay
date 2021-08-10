@@ -1,13 +1,14 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { FlatList } from 'react-native';
 
 import { formatDistance } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { useFragment } from 'relay-hooks';
+import { useFragment, useMutation } from 'relay-hooks';
 
 import { TweetsFragment_Tweet$key } from '../../data/relay/__generated__/TweetsFragment_Tweet.graphql';
 import { TweetsQueryResponse } from '../../data/relay/__generated__/TweetsQuery.graphql';
 import TweetsFragment from '../../data/relay/TweetsFragment';
+import UpvoteTweetMutation from '../../data/relay/UpvoteTweetMutation';
 import {
   Content,
   Header,
@@ -20,6 +21,7 @@ import {
 
 const Tweet = ({ node }: { node: TweetsFragment_Tweet$key }) => {
   const tweet = useFragment<TweetsFragment_Tweet$key>(TweetsFragment, node);
+  const [commit] = useMutation(UpvoteTweetMutation);
 
   const formattedDate = useMemo(
     () =>
@@ -28,6 +30,16 @@ const Tweet = ({ node }: { node: TweetsFragment_Tweet$key }) => {
       })}`,
     [tweet.createdAt],
   );
+
+  const handleUpvoteTweet = useCallback(async () => {
+    const config = {
+      variables: {
+        id: tweet?.id,
+      },
+    };
+
+    await commit(config);
+  }, [commit, tweet?.id]);
 
   return (
     <TweetContainer>
@@ -40,7 +52,7 @@ const Tweet = ({ node }: { node: TweetsFragment_Tweet$key }) => {
           <Text>{tweet.description}</Text>
         </Content>
       )}
-      <LikesButton onPress={() => {}}>
+      <LikesButton onPress={handleUpvoteTweet}>
         <LikesIcon />
         <SubText>{tweet.likes}</SubText>
       </LikesButton>
