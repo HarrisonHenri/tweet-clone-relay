@@ -15,6 +15,7 @@ import * as Yup from 'yup';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import InputLabelError from '../../components/InputLabelError';
+import { useAuth } from '../../hooks/auth';
 import { Container, LinkText, Link, Text } from './styles';
 
 type Props = {
@@ -38,6 +39,8 @@ const SignIn: React.FC<Props> = ({ navigation }) => {
     navigation.navigate('SignUp');
   }, [navigation]);
 
+  const { signIn } = useAuth();
+
   return (
     <>
       <KeyboardAvoidingView
@@ -52,7 +55,7 @@ const SignIn: React.FC<Props> = ({ navigation }) => {
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
-              onSubmit={values => console.log(values)}>
+              onSubmit={values => signIn(values)}>
               {({ handleChange, handleSubmit, values, errors }) => (
                 <View>
                   <Input
