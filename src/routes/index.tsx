@@ -1,23 +1,22 @@
 import React from 'react';
+import { ActivityIndicator } from 'react-native';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import { useAuth } from '../hooks/auth';
+import AuthRoutes from './auth.routes';
+import PrivateRoutes from './private.routes';
 
-import Home from '../pages/Home';
-import NewTweet from '../pages/NewTweet';
-import SignIn from '../pages/SignIn';
-import SignUp from '../pages/SignUp';
+const Routes: React.FC = () => {
+  const { user, loading } = useAuth();
 
-const Routes = () => {
-  const Stack = createStackNavigator();
+  if (loading) {
+    return <ActivityIndicator />;
+  }
 
-  return (
-    <Stack.Navigator headerMode="none" initialRouteName="Home">
-      <Stack.Screen key="signin" name="SignIn" component={SignIn} />
-      <Stack.Screen key="signin" name="SignUp" component={SignUp} />
-      <Stack.Screen key="home" name="Home" component={Home} />
-      <Stack.Screen key="newTweet" name="NewTweet" component={NewTweet} />
-    </Stack.Navigator>
-  );
+  if (user) {
+    return <PrivateRoutes />;
+  }
+
+  return <AuthRoutes />;
 };
 
 export default Routes;

@@ -14,13 +14,12 @@ import * as Yup from 'yup';
 
 import Button from '../../components/Button';
 import CreateTweetMutation from '../../data/relay/CreateTweetMutation';
+import { useAuth } from '../../hooks/auth';
 import { Container, ButtonsContainer, Content, Input } from './styles';
 
 type Props = {
   navigation: StackNavigationProp<ParamListBase>;
 };
-
-const USER_ID = '610f088a7b32b73a98979e09';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required('Mandatory field'),
@@ -33,11 +32,13 @@ const initialValues = {
 const NewTweet = ({ navigation }: Props) => {
   const [commit] = useMutation(CreateTweetMutation);
 
+  const { user } = useAuth();
+
   const handleCreateTweet = useCallback(
     async (text: string) => {
       const config = {
         variables: {
-          author: USER_ID,
+          author: user.id,
           description: text,
         },
         updater: (store: RecordSourceSelectorProxy) => {
@@ -60,7 +61,7 @@ const NewTweet = ({ navigation }: Props) => {
       await commit(config);
       navigation.goBack();
     },
-    [commit, navigation],
+    [commit, navigation, user.id],
   );
 
   return (

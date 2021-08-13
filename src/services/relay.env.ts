@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-community/async-storage';
 import {
   Network,
   RecordSource,
@@ -8,12 +9,13 @@ import {
 } from 'relay-runtime';
 
 async function fetchQuery(operation: RequestParameters, variables: Variables) {
-  return fetch('http://192.168.0.7:4000/', {
+  const token = await AsyncStorage.getItem('token');
+
+  return fetch('http://192.168.0.6:4000/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjgzNzUyMDksImV4cCI6MTYyODk4MDAwOSwic3ViIjoiXCI2MTBmMDg4YTdiMzJiNzNhOTg5NzllMDlcIiJ9.2goXACoME801AvNljDpTH-wJOxL-aNa4u_ZMZvYdpNw',
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       query: operation.text,
