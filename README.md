@@ -2,7 +2,7 @@
 
 ## About this Project
 
-_"The objective of the project is to help people to remember to water your plants based on Next Level Week 5 by [Rockesea](https://rocketseat.com.br/)"._
+_"The objective of the project is to clone the twitter interface based on [this series of videos](https://www.youtube.com/playlist?list=PLgR7SB9A86BHSgK0Wa0H_Wq5GHN31UrD3)"._
 
 ## Why?
 
