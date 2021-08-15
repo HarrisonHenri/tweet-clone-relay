@@ -74,7 +74,7 @@ $ yarn start
 
 ## Contributing
 
-You can send how many PR's do you want, I'll be glad to analyse and accept them! And if you have any question about the project please does not hesitate to ask :).
+You can send how many PR's do you want, I'll be glad to analyse and accept them! I am also avaliable if you have any question about the project :).
 
 Email-me: harrisonhenrisn@gmail.com
 
